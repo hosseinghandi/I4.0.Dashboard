@@ -6,6 +6,6 @@ export const qgrindConfiguration: MachineDefinition = {
   serial: '600_00201',
   protocol: 'MTConnect',
   resultView: 'mtconnect',
-  defaultConfiguration: { host: '192.168.200.50', port: '5000', pollIntervalMs: 2000 },
+  defaultConfiguration: { host: '192.168.200.10', port: '5000', pollIntervalMs: 2000 },
   supportsConnection: true,
 }
