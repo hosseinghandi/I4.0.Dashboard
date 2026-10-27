@@ -2,6 +2,9 @@ import { XMLParser } from 'fast-xml-parser';
 const parser = new XMLParser({ ignoreAttributes: false });
 export class MtConnectMachineService {
     agentUrl = null;
+    get isConfigured() {
+        return this.agentUrl !== null;
+    }
     setAgentAddress(address) {
         if (typeof address !== 'string' || !address.trim()) {
             return { success: false, message: 'Inserisci un indirizzo IP valido per l’agente MTConnect.' };

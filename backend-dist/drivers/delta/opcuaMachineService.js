@@ -46,6 +46,9 @@ function isJobData(value) {
 export class OPCUAMachineService {
     client = null;
     session = null;
+    get isConnected() {
+        return this.session !== null;
+    }
     async disconnect() {
         const session = this.session;
         const client = this.client;

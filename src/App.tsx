@@ -4,15 +4,16 @@ import { DashboardLayout } from './components/layout/DashboardLayout'
 import { MachinePage } from './components/shared/MachinePage'
 import { UnavailableResults } from './components/shared/UnavailableResults'
 import { CommunicationSetupPage } from './components/setup/CommunicationSetupPage'
+import { ProductionArticlesPage } from './productionArticles/ProductionArticlesPage'
 import { DeltaResults } from './machines/delta/Results'
 import { QGrindResults } from './machines/qgrind/Results'
 import { useMachineConnections } from './machines/useMachineConnections'
 import type { MachineId } from './machines/types'
 
-type ActivePage = 'machine' | 'setup'
+type ActivePage = 'production-articles' | 'machine' | 'setup'
 
 export function App() {
-  const [activePage, setActivePage] = useState<ActivePage>('machine')
+  const [activePage, setActivePage] = useState<ActivePage>('production-articles')
   const [selectedMachine, setSelectedMachine] = useState<MachineId>('qgrind')
   const machineConnections = useMachineConnections()
   const states = machineConnections.machines
@@ -27,11 +28,14 @@ export function App() {
   return (
     <DashboardLayout
       machineId={selectedMachine}
-      communicationSetupActive={activePage === 'setup'}
+      activePage={activePage}
       onSelectMachine={selectMachine}
+      onOpenProductionArticles={() => setActivePage('production-articles')}
       onOpenSetup={() => setActivePage('setup')}
     >
-      {activePage === 'setup' ? (
+      {activePage === 'production-articles' ? (
+        <ProductionArticlesPage />
+      ) : activePage === 'setup' ? (
         <CommunicationSetupPage
           configurations={machineConnections.configurations}
           machineStates={states}

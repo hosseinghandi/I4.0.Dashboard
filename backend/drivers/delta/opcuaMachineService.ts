@@ -81,6 +81,9 @@ export class OPCUAMachineService {
   private client: Client | null = null
   private session: Session | null = null
 
+  get isConnected(): boolean {
+    return this.session !== null
+  }
   async disconnect(): Promise<void> {
     const session = this.session
     const client = this.client

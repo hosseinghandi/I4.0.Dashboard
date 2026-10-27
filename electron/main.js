@@ -20,9 +20,10 @@ function spawnNodeScript(scriptPath, args, extraEnv = {}) {
 function startBackend(production) {
   if (backendServer && backendServer.exitCode === null) return
   const backendEntry = path.join(app.getAppPath(), 'backend-dist', 'server.js')
-  backendServer = spawnNodeScript(backendEntry, [], production
-    ? { DASHBOARD_STATIC_DIR: 'dist' }
-    : {})
+  backendServer = spawnNodeScript(backendEntry, [], {
+    DASHBOARD_DATA_DIR: path.join(app.getPath('userData'), 'data'),
+    ...(production ? { DASHBOARD_STATIC_DIR: 'dist' } : {}),
+  })
   backendServer.on('error', (error) => {
     serverError = error
   })

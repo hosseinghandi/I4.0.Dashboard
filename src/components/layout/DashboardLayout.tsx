@@ -8,14 +8,16 @@ import { MachineSidebar } from "./MachineSidebar";
 
 export function DashboardLayout({
   machineId,
-  communicationSetupActive,
+  activePage,
   onSelectMachine,
+  onOpenProductionArticles,
   onOpenSetup,
   children,
 }: {
   machineId: MachineId;
-  communicationSetupActive: boolean;
+  activePage: "production-articles" | "machine" | "setup";
   onSelectMachine: (id: MachineId) => void;
+  onOpenProductionArticles: () => void;
   onOpenSetup: () => void;
   children: ReactNode;
 }) {
@@ -26,8 +28,9 @@ export function DashboardLayout({
       <MachineSidebar
         machines={machineDefinitions}
         activeMachine={machineId}
-        communicationSetupActive={communicationSetupActive}
+        activePage={activePage}
         onSelectMachine={onSelectMachine}
+        onOpenProductionArticles={onOpenProductionArticles}
         onOpenSetup={onOpenSetup}
       />
       <main className="min-h-screen pt-[167px] sm:ml-[270px] sm:pt-0">
@@ -38,9 +41,11 @@ export function DashboardLayout({
             </span>
             <span className="text-neutral-300">/</span>
             <span className="truncate">
-              {communicationSetupActive
+              {activePage === "setup"
                 ? "Configurazione comunicazione"
-                : machine.name}
+                : activePage === "production-articles"
+                  ? "Production Article"
+                  : machine.name}
             </span>
           </div>
         </header>

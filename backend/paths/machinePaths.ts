@@ -1,3 +1,8 @@
+export const productionArticlePaths = {
+  collection: '/api/production-articles',
+  item: '/api/production-articles/:id',
+} as const
+
 export const machinePaths = {
   health: '/health',
   delta: {
