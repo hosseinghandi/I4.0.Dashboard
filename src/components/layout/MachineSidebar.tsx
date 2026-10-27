@@ -1,3 +1,4 @@
+import { BoxIcon } from "../shared/BoxIcon";
 import type { MachineDefinition, MachineId } from "../../machines/types";
 
 export function MachineSidebar({
@@ -40,8 +41,8 @@ export function MachineSidebar({
           className={`flex min-h-10 w-full items-center gap-2.5 rounded-md px-2.5 text-left text-xs transition-colors ${activePage === "production-articles" ? "bg-brand-primary font-semibold text-white" : "text-neutral-300 hover:bg-white/10 hover:text-white"}`}
           onClick={onOpenProductionArticles}
         >
-          <span className="w-[21px] text-center text-sm" aria-hidden="true">?</span>
-          Production Article
+          <BoxIcon className="h-4 w-4 shrink-0 text-current" strokeWidth={1.5} />
+          <span>Production Article</span>
         </button>
       </div>
 

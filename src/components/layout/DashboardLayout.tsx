@@ -49,9 +49,9 @@ export function DashboardLayout({
             </span>
           </div>
         </header>
-        <div className="w-full px-4 py-6 sm:px-[clamp(22px,4.8vw,74px)] sm:py-9">
+        <div className="w-full px-4 py-3 sm:px-[clamp(20px,4vw,60px)] sm:py-3.5">
           {children}
-          <footer className="mt-6 text-[10px] text-neutral-400">
+          <footer className="mt-4 text-[10px] text-neutral-400">
             Dashboard industriale OCIMA <span className="mx-1">·</span> I dati
             macchina provengono dal driver di comunicazione configurato.
           </footer>

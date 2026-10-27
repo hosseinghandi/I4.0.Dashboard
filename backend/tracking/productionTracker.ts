@@ -24,13 +24,17 @@ const timestamp = () => new Date().toISOString().replace('T', ' ').slice(0, 19)
 export class ProductionTracker {
   private timer: ReturnType<typeof setInterval> | null = null
   private ticking = false
+  private readonly database: DatabaseSync
+  private readonly intervalMs: number
   private readonly adapters: Map<string, MachineAdapter>
 
   constructor(
-    private readonly database: DatabaseSync,
+    database: DatabaseSync,
     adapters: MachineAdapter[],
-    private readonly intervalMs = 2000,
+    intervalMs = 2000,
   ) {
+    this.database = database
+    this.intervalMs = intervalMs
     this.adapters = new Map(adapters.map((adapter) => [adapter.machineId, adapter]))
   }
 

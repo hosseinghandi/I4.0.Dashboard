@@ -3,14 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "electron/main.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "tsx server.ts",
+    "start": "node server.ts",
     "backend": "tsx backend/server.ts",
     "backend:build": "tsc -p tsconfig.backend.json",
     "backend:production": "npm run backend:build && node backend-dist/server.js",
-    "desktop": "npm run backend:build && electron .",
-    "desktop:built": "electron . --production",
     "build": "tsc -b && npm run backend:build && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

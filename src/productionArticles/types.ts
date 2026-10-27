@@ -55,16 +55,31 @@ export const productionArticleStateLabels: Record<ProductionArticleState, string
 }
 
 export const productionArticleStateStyles: Record<ProductionArticleState, string> = {
-  queued: 'bg-neutral-100 text-neutral-600',
-  waiting: 'bg-amber-50 text-amber-700',
-  working: 'bg-blue-50 text-blue-700',
-  error: 'bg-red-50 text-red-700',
-  completed: 'bg-brand-green-50 text-brand-green-800',
+  queued: 'bg-neutral-100 text-neutral-700 border border-neutral-300',
+  waiting: 'bg-neutral-100 text-neutral-800 border border-neutral-300',
+  working: 'bg-brand-green-100 text-brand-green-900 border border-brand-green-300 font-semibold',
+  error: 'bg-neutral-200 text-neutral-900 border border-neutral-400',
+  completed: 'bg-brand-green-50 text-brand-green-800 border border-brand-green-200',
 }
 
 export const stepStatusStyles: Record<StepStatus, string> = {
-  pending: 'bg-neutral-100 text-neutral-500',
-  working: 'bg-blue-100 text-blue-700',
+  pending: 'bg-neutral-100 text-neutral-600 border border-neutral-200',
+  working: 'bg-brand-sidebar text-white border border-brand-sidebar',
   finished: 'bg-brand-primary text-white',
-  error: 'bg-red-100 text-red-700',
+  error: 'bg-neutral-800 text-white',
 }
+
+export const shortMachineNames: Record<MachineId, string> = {
+  delta: 'Delta MINI 15',
+  qgrind: 'Q-Grind U-600',
+  mikron: 'Mikron VCE 1200',
+  zeiss: 'Zeiss Contura',
+}
+
+export const machineTypeLabels: Record<MachineId, string> = {
+  delta: 'Rettifica tangenziale',
+  qgrind: 'Rettifica cilindrica',
+  mikron: 'Fresatura CNC',
+  zeiss: 'Misura e collaudo CMM',
+}
+

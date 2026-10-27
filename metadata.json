@@ -1,0 +1,7 @@
+{
+  "name": "OCIMA Dashboard",
+  "description": "Industrial dashboard for monitoring and tracking production across manufacturing machines (Delta, QGrind, Mikron, Zeiss).",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
