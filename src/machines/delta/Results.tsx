@@ -36,7 +36,7 @@ export function DeltaResults({
               <div
                 key={field.key}
                 aria-disabled={!machine.values}
-                className={`flex min-h-[68px] items-center justify-between gap-3 rounded-lg border border-neutral-100 px-3.5 py-3 ${machine.values ? "bg-neutral-50" : "bg-neutral-50/60 text-neutral-400"}`}
+                className={`flex min-h-[68px] items-center justify-between gap-3 rounded-lg border border-brand-border px-3.5 py-3 ${machine.values ? "bg-neutral-50" : "bg-neutral-50/60 text-neutral-400"}`}
               >
                 <span
                   className={`text-xs ${machine.values ? "text-neutral-600" : "text-neutral-400"}`}
